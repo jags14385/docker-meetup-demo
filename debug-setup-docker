@@ -1,0 +1,7 @@
+
+docker run -d -p 4444:4444 --name selenium-hub selenium/hub:latest
+docker run -d -p 4441:5900 --link selenium-hub:hub selenium/node-chrome-debug:latest
+
+docker port <container-name or container-id>  5900
+
+vnc://<output of the above line>
