@@ -1,22 +1,18 @@
 version: '2'
 services:
-  chromednode:
+  node_chrome_debug:
       image: selenium/node-chrome-debug:3.0.1
       volumes:
       - /dev/urandom:/dev/random
       depends_on: 
         - seleniumhub
       ports: 
-        - "5900:5900"
+        - 5900
       environment: 
         - "HUB_PORT_4444_TCP_ADDR=seleniumhub"
         - "HUB_PORT_4444_TCP_PORT=4444"  
-      expose:
-      - "5900"   
 
   seleniumhub:
     image: selenium/hub:3.0.1
     ports: 
-      - "4444:4444"
-    expose:
-      - "4444"
+      - 4444:4444
